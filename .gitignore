@@ -1,0 +1,41 @@
+# data
+data 
+img
+audio
+video
+*.zip
+*.gz
+*.csv
+*.jpg
+*.npz
+
+# models
+*.pth 
+*.pt 
+
+# cache
+__pycache__
+
+# 기타
+강의 커리큘럼
+이관수
+
+# 가상환경 
+.venv 
+.vscode
+
+# mac
+Icon
+.DS_Store
+**/**/.DS_Store
+
+
+# Django samples
+**/Django/samples/**
+*.sqlite3
+
+# java 
+bin
+lib 
+# demo
+demo 
