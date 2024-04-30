@@ -1,14 +1,3 @@
-# data
-data 
-img
-audio
-video
-*.zip
-*.gz
-*.csv
-*.jpg
-*.npz
-
 # models
 *.pth 
 *.pt 
