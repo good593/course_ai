@@ -1,0 +1,2 @@
+- https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2023/
+- https://www.aitimes.com/news/articleView.html?idxno=132756
