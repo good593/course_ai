@@ -99,8 +99,10 @@ streamlit run chat.py
 ![alt text](image-4.png)
 
 ---
-
-
+# [chatbot.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)
+- https://alphalog.co.kr/227
+- https://gniogolb.tistory.com/17
+- https://wikidocs.net/230759
 
 
 
