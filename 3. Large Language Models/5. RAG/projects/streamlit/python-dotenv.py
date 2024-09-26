@@ -3,6 +3,6 @@ from dotenv import load_dotenv
 import streamlit as st
 
 load_dotenv()
+SECRET_ENV = os.getenv("SECRET_ENV")
 
-# 타이틀 적용 예시
-st.title('이것은 타이틀 입니다')
+st.title(f"SECRET_ENV > {SECRET_ENV}")
