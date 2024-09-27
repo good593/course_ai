@@ -9,7 +9,10 @@ style: |
 marp: true
 paginate: true
 ---
-# [python-dotenv.py](https://daco2020.tistory.com/480)
+# chatbot.py
+
+---
+## [python-dotenv](https://daco2020.tistory.com/480)
 - Python에서는 python-dotenv 라이브러리를 사용하여 환경변수를 쉽게 관리할 수 있다.
 
 ---
@@ -20,86 +23,82 @@ pip install python-dotenv
 ### 단계2: `.env`
 - `.env` 파일에 환경변수 설정 
 ```shell
-SECRET_ENV="코딩좋아^^"
+USER_NAME="홍길동"
 ```
 
 ---
-### 단계3: python-dotenv.py
+### 단계3: 사용법
 ```python
 import os
 from dotenv import load_dotenv
+
+# .env에 등록된 데이터를 os 환경변수에 적용
+load_dotenv()
+
+# os 환경변수에 등록된 데이터 확인 
+SECRET_ENV = os.getenv("SECRET_ENV")
+```
+
+---
+## [streamlit chatbot](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps) 
+- streamlit을 이용하여 chatbot 구축 
+
+### 단계1: 설치
+```shell
+pip install streamlit
+```
+---
+### 단계2: chat_input
+- 사용자가 chat을 입력하는 widget
+```python
 import streamlit as st
 
-load_dotenv()
-SECRET_ENV = os.getenv("SECRET_ENV")
+prompt = st.chat_input("Say something")
+if prompt:
+    st.write(f"User has sent the following prompt: {prompt}")
+```
 
-st.title(f"SECRET_ENV > {SECRET_ENV}")
+---
+### 단계3: chat_message
+- 사용자의 chat과 응답을 보여줌
+```python
+import streamlit as st
+
+with st.chat_message("user"):
+    st.write("Hello 👋")
+```
+
+---
+### 단계4: session_state 
+- chat history를 저장
+```python
+import streamlit as st
+
+st.title("Echo Bot")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+```
+
+---
+### 단계5: 실행 
+- 참고파일: `chatbot.py`
+```shell
+streamlit run chatbot.py
 ```
 ![alt text](image.png)
 
 ---
-### 단계4: streamlit 실행 
-```shell
-streamlit run python-dotenv.py
-```
 ![alt text](image-1.png)
 
 ---
-### 단계5: 결과 확인 
-![alt text](image-2.png)
-
----
-# [chat.py](https://github.com/cailynyongyong/solar-llm/blob/master/chat.py)
-- LLM OpenAI를 이용하여 답변 구현 
-
----
-### 단계1: 설치
-```shell
-pip install langchain-openai langchain langchain-community langchain-core
-```
-### 단계2: OPENAI_API_KEY 환경변수 설정 
-- [OpenAI Key 발급방법](https://platform.openai.com/api-keys)
-- [OpenAI 요금](https://openai.com/api/pricing/)
-- `.env`를 이용하여 환경변수 설정
-```shell
-OPENAI_API_KEY="api 키 입력"
-```
-
----
-### 단계3: chat.py
-```python
-import streamlit as st
-from dotenv import load_dotenv
-load_dotenv()
-
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage, SystemMessage
-
-chat = ChatOpenAI()
-
-messages = [
-    SystemMessage(content="You are a helpful assistant."),
-    HumanMessage(content="Hi, how are you?")
-]
-response = chat.invoke(messages)
-print(response.content)
-st.title(f"response > {response.content}")
-
-```
-
----
-### 단계4: streamlit 실행 
-```shell
-streamlit run chat.py
-```
-![alt text](image-3.png)
-
----
-### 단계5: 결과 확인 
-![alt text](image-4.png)
-
----
-# [chatbot.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)
+# [chatbot_with_openai.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)
 - https://alphalog.co.kr/227
 - https://gniogolb.tistory.com/17
 - https://wikidocs.net/230759
