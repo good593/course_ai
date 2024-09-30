@@ -87,15 +87,49 @@ for message in st.session_state.messages:
 ```
 
 ---
-### 단계5: 실행 
-- 참고파일: `chatbot.py`
+### 단계5: 실행
 ```shell
 streamlit run chatbot.py
 ```
-![alt text](image.png)
+![bg right w:600](image-1.png)
 
 ---
-![alt text](image-1.png)
+# [chatbot_with_openai.py](https://platform.openai.com/docs/api-reference/chat)
+
+---
+### 단계1: 설치
+```shell
+pip install openai
+```
+### 단계2: `.env`
+- `.env` 파일에 환경변수 설정 
+```shell
+OPENAI_API_KEY="openai api key 입력"
+```
+
+---
+### 단계3: OpenAI Chat 생성
+```python
+from openai import OpenAI
+
+client = OpenAI()
+
+stream = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": "Say this is a test"}],
+    stream=True,
+)
+for chunk in stream:
+    if chunk.choices[0].delta.content is not None:
+        print(chunk.choices[0].delta.content, end="")
+```
+
+---
+### 단계4: 실행 
+```shell
+streamlit run chatbot_with_openai.py
+```
+![bg right w:600](image.png)
 
 ---
 # [chatbot_with_openai.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)

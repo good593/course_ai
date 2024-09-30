@@ -7,8 +7,7 @@ import random
 import time
 import streamlit as st
 
-from common.chat_history import init_session_history
-from common.chat import run_chat
+from common.chat import run_chat, init_session_history
 
 st.title("chatbot.py")
 

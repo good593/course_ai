@@ -1,6 +1,6 @@
+import uuid
 
 from .constant import CHATBOT_ROLE
-from .chat_history import add_content_in_history
 
 def run_chat(streamlit, default_message, assistant=None):
     # React to user input
@@ -19,5 +19,23 @@ def run_chat(streamlit, default_message, assistant=None):
             # Add assistant response to chat history
             add_content_in_history(streamlit, CHATBOT_ROLE.assistant.name, response)
 
+# Initialize chat history
+def init_session_history(streamlit):
+    if "id" not in streamlit.session_state:
+        streamlit.session_state.id = uuid.uuid4()
+        streamlit.session_state.file_cache = {}
 
+    if "messages" not in streamlit.session_state:
+        streamlit.session_state.messages = []
+
+    # Display chat messages from history on app rerun
+    for message in streamlit.session_state.messages:
+        if message["role"] in CHATBOT_ROLE.__members__:
+            with streamlit.chat_message(message["role"]):
+                streamlit.markdown(message["content"])
+
+# Add assistant response to chat history
+def add_content_in_history(streamlit, role, content):
+    if role in CHATBOT_ROLE.__members__:
+        streamlit.session_state.messages.append({"role": role, "content": content}) 
 
