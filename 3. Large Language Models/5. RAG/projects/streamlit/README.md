@@ -138,7 +138,7 @@ streamlit run chatbot_with_openai.py
 - https://wikidocs.net/230759
 
 ---
-## Install Chroma
+## Install Chroma Vector DB
 - [Install Chroma on Window 에러](https://stackoverflow.com/questions/73969269/error-could-not-build-wheels-for-hnswlib-which-is-required-to-install-pyprojec/76245995#76245995)
 
 ---
@@ -146,12 +146,17 @@ streamlit run chatbot_with_openai.py
 ![alt text](image-2.png)
 
 ---
-### [단계2: Microsoft C++ Build Tools 실행 및 설치]
+### 단계2: Microsoft C++ Build Tools 실행 및 설치
 ![alt text](image-3.png)
 
+---
+### 단계3: install Chroma 
+```shell
+pip install chromadb langchain-chroma
+```
+![alt text](image-5.png)
 
-
-
+---
 
 
 
