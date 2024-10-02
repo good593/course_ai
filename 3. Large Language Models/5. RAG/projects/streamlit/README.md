@@ -132,14 +132,22 @@ streamlit run chatbot_with_openai.py
 ![bg right w:600](image.png)
 
 ---
-# [chatbot_with_openai.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)
+# [chatbot_with_rag.py](https://www.developerfastlane.com/blog/build-chatgpt-clone-with-streamlit)
 - https://alphalog.co.kr/227
 - https://gniogolb.tistory.com/17
 - https://wikidocs.net/230759
 
+---
+## Install Chroma
+- [Install Chroma on Window 에러](https://stackoverflow.com/questions/73969269/error-could-not-build-wheels-for-hnswlib-which-is-required-to-install-pyprojec/76245995#76245995)
 
+---
+### [단계1: Microsoft C++ Build Tools 다운로드](https://visualstudio.microsoft.com/ko/visual-cpp-build-tools/)
+![alt text](image-2.png)
 
-
+---
+### [단계2: Microsoft C++ Build Tools 실행 및 설치]
+![alt text](image-3.png)
 
 
 
