@@ -12,3 +12,7 @@ def get_retriever(file_path):
     vectorstore = Chroma.from_documents(pages, OpenAIEmbeddings())
     retriever = vectorstore.as_retriever(k=2)
     return retriever
+
+
+
+
