@@ -206,6 +206,10 @@ pip install chromadb langchain-chroma
 ![alt text](image-5.png)
 
 ---
+## RAG(Retrieval-Augmented Generation)
+![alt text](image-4.png)
+
+---
 
 
 
